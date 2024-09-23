@@ -1,4 +1,5 @@
 import PLACEHOLDER_IMAGE_URL from '@/assets/placeholder_image.png'
+import TP_LOGO_URL from '@/assets/tp_logo.png'
 import type { StyledQRCodeProps } from '@/components/StyledQRCode.vue'
 import type { DrawType } from 'qr-code-styling'
 import GeeksHackingConfig from '@/assets/presets/geekshacking.json'
@@ -240,6 +241,37 @@ export const vueJsPreset: Preset = {
 // Individual presets
 
 export const defaultPreset: Preset = {
+  "props": {
+    "data": "",
+    "image": "TP_LOGO_URL",
+    "width": 370,
+    "height": 370,
+    "margin": 0,
+    "dotsOptions": {
+      "color": "#000000",
+      "type": "square"
+    },
+    "cornersSquareOptions": {
+      "color": "#000000",
+      "type": "square"
+    },
+    "cornersDotOptions": {
+      "color": "#000000",
+      "type": "square"
+    },
+    "imageOptions": {
+      "margin": 0
+    },
+    "qrOptions": {
+      "errorCorrectionLevel": "Q"
+    }
+  },
+  "style": {
+    "borderRadius": "24px",
+    "background": "#ffffff"
+  }
+}
+  /*{
   ...defaultPresetOptions,
   name: 'Default',
   data: 'https://github.com/lyqht',
@@ -260,7 +292,7 @@ export const defaultPreset: Preset = {
     borderRadius: '24px',
     background: '#697d80'
   }
-}
+}*/
 export const pejuangKodePreset: Preset = {
   ...defaultPresetOptions,
   name: 'Pejuang Kode',
