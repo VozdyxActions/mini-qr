@@ -243,7 +243,7 @@ export const vueJsPreset: Preset = {
 export const defaultPreset: Preset = {
   ...defaultPresetOptions,
   name: 'Default',
-  data: '',
+  data: 'https://tppm.ru',
   image: TP_LOGO_URL,
   width: 370,
   height: 370,
@@ -264,7 +264,7 @@ export const defaultPreset: Preset = {
     margin: 0
   },
   qrOptions: {
-    errorCorrectionLevel: 'Q'
+    errorCorrectionLevel: 'H'
   },
   style: {
     borderRadius: '24px',
