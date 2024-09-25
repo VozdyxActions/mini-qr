@@ -76,10 +76,10 @@ export function downloadPngElement(element: HTMLElement, filename: string, optio
     printWindow.document.write(html);
     printWindow.document.close();
     printWindow.close();
-    //const link = document.createElement('a')
-    //link.href = dataUrl
-    //link.download = filename
-    //link.click()
+    const link = document.createElement('a')
+    link.href = dataUrl
+    link.download = filename
+    link.click()
   }).catch((error: Error) => {
     console.error('Error converting element to PNG:', error)
   })
