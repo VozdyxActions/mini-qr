@@ -60,7 +60,7 @@ export function downloadPngElement(element: HTMLElement, filename: string, optio
    var win = window.open(event.target.result,"_blank");
    win.onload = function() { win.print(); }
   };
-  reader.readAsDataURL(element); 
+  domtoimage.toBlob(element).then(function (blob0) {reader.readAsDataURL(blob0); });
   /*getPngElement(element, options).then((dataUrl: string) => {
     //const link = document.createElement('a')
     //link.href = dataUrl
