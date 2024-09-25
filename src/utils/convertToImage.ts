@@ -63,7 +63,6 @@ export function downloadPngElement(element: HTMLElement, filename: string, optio
   domtoimage.toBlob(element).then(function (blob0) {reader.readAsArrayBuffer(blob0); });*/
   getPngElement(element, options).then((dataUrl: string) => {
     console.log(dataUrl);
-    var canvas = event.context.canvas;
     var html  = '<html><head><title></title></head>';
     html += '<body style="width: 100%; padding: 0; margin: 0;"';
     html += ' onload="window.focus(); window.print(); window.close()">';
