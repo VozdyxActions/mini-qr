@@ -55,14 +55,20 @@ export function getPngElement(element: HTMLElement, options: Options) {
 }
 
 export function downloadPngElement(element: HTMLElement, filename: string, options: Options) {
-  getPngElement(element, options).then((dataUrl: string) => {
-    const link = document.createElement('a')
-    link.href = dataUrl
-    link.download = filename
-    link.click()
+  var reader = new FileReader();
+  reader.onload = function(event) {
+   var win = window.open(event.target.result,"_blank");
+   win.onload = function() { win.print(); }
+  };
+  reader.readAsDataURL(element); 
+  /*getPngElement(element, options).then((dataUrl: string) => {
+    //const link = document.createElement('a')
+    //link.href = dataUrl
+    //link.download = filename
+    //link.click()
   }).catch((error: Error) => {
     console.error('Error converting element to PNG:', error)
-  })
+  })*/
 }
 
 export function getSvgElement(element: HTMLElement, options: Options) {
