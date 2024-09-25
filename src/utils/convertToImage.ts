@@ -55,14 +55,28 @@ export function getPngElement(element: HTMLElement, options: Options) {
 }
 
 export function downloadPngElement(element: HTMLElement, filename: string, options: Options) {
-  var reader = new FileReader();
+  /*var reader = new FileReader();
   reader.onload = function(event) {
    var win = window.open(event.target.result,"_blank");
    win.onload = function() { win.print(); }
   };
-  domtoimage.toBlob(element).then(function (blob0) {reader.readAsArrayBuffer(blob0); });
+  domtoimage.toBlob(element).then(function (blob0) {reader.readAsArrayBuffer(blob0); });*/
   getPngElement(element, options).then((dataUrl: string) => {
     console.log(dataUrl);
+    var canvas = event.context.canvas;
+    var html  = '<html><head><title></title></head>';
+    html += '<body style="width: 100%; padding: 0; margin: 0;"';
+    html += ' onload="window.focus(); window.print(); window.close()">';
+    html += '<img src="' + dataUrl + '" /></body></html>';
+
+    var printWindow = window.open('', 'to_print');
+
+    //printWindow.onload = function() { printWindow.print(); }
+    
+    printWindow.document.open();
+    printWindow.document.write(html);
+    printWindow.document.close();
+    printWindow.close();
     //const link = document.createElement('a')
     //link.href = dataUrl
     //link.download = filename
