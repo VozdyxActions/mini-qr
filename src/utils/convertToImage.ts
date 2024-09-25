@@ -61,14 +61,15 @@ export function downloadPngElement(element: HTMLElement, filename: string, optio
    win.onload = function() { win.print(); }
   };
   domtoimage.toBlob(element).then(function (blob0) {reader.readAsArrayBuffer(blob0); });
-  /*getPngElement(element, options).then((dataUrl: string) => {
+  getPngElement(element, options).then((dataUrl: string) => {
+    console.log(dataUrl);
     //const link = document.createElement('a')
     //link.href = dataUrl
     //link.download = filename
     //link.click()
   }).catch((error: Error) => {
     console.error('Error converting element to PNG:', error)
-  })*/
+  })
 }
 
 export function getSvgElement(element: HTMLElement, options: Options) {
