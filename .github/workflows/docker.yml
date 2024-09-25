@@ -2,7 +2,7 @@ name: Docker
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/bulk-data-export]
   pull_request:
     branches: [main]
   release:
